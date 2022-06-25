@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Chart } from "react-google-charts";
 
-function App() {
+export const data = [
+  ["Дни недели", "Количество затраченных часов"],
+  ["Пн", 1],
+  ["Вт", 1],
+  ["Ср", 1.5],
+  ["Чт", 1],
+  ["Пт", 1.5],
+  ["Сб", 4.5],
+  ["Вс", 3.5],
+];
+
+export const options = {
+  legend: "none",
+  pieSliceText: "label",
+  title: "Занятость учебой по дням недели",
+  pieStartAngle: 100,
+};
+
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Chart
+      chartType="PieChart"
+      data={data}
+      options={options}
+      width={"100%"}
+      height={"400px"}
+    />
   );
 }
-
-export default App;
